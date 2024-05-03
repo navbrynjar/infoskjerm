@@ -23,16 +23,18 @@ def main():
 
     # open the quarto to load the connection / login
     webbrowser.open(nettsider["quarto_infoskjerm"])
-    time.sleep(20)
+    time.sleep(30)
 
     # open all tabs
     for tab in nettsider.values():
         webbrowser.open(tab)
-        time.sleep(1)
+        time.sleep(.5)
 
     # on startup the default quarto page is opened, which we don't want
     with pyautogui.hold(cmd):
-        pyautogui.press(["1", "w"])
+        pyautogui.press("1")
+        time.sleep(1)
+        pyautogui.press("w")
 
     loop = 0
     tab_numbers = [str(i) for i in range(1, len(nettsider) + 1)]
