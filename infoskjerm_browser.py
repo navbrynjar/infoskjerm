@@ -7,7 +7,6 @@ import pyautogui
 
 # quarto_infoskjerm = "https://data.ansatt.nav.no/story/6c66a54b-3599-4090-80a1-1a4073900929/index.html#infoskjerm"
 
-
 nettsider = {
     "quarto_infoskjerm": "https://data.ansatt.nav.no/story/6c66a54b-3599-4090-80a1-1a4073900929/index.html#infoskjerm",
     # 'grafana_spenn': "https://grafana.nav.cloud.nais.io/d/d1961678-a775-469a-8718-92082ee6f3ba/airflow-profilering?orgId=1&var-namespace=team-spenn-vans&from=now-2d&to=now",
@@ -18,20 +17,24 @@ nettsider = {
 mac = False
 cmd = "command" if mac else "ctrl"
 
+pause_tid = 10  # seconds
 
 def main():
+
+    # open the quarto to load the connection / login
+    webbrowser.open(nettsider["quarto_infoskjerm"])
+    time.sleep(20)
+
     # open all tabs
     for tab in nettsider.values():
         webbrowser.open(tab)
         time.sleep(1)
 
     # on startup the default quarto page is opened, which we don't want
-    # close the first tab, which is the default tab
     with pyautogui.hold(cmd):
         pyautogui.press(["1", "w"])
 
     loop = 0
-
     tab_numbers = [str(i) for i in range(1, len(nettsider) + 1)]
 
     try:
@@ -41,7 +44,7 @@ def main():
                     pyautogui.press(number)  # switch tab
                     if loop % 10 == 0:
                         pyautogui.press("r")  # refresh
-                time.sleep(10)
+                time.sleep(pause_tid)
             loop += 1
     except KeyboardInterrupt:
         print("Exiting the loop")
