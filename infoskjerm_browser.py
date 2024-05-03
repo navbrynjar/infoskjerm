@@ -23,6 +23,13 @@ pause_tid = 10  # seconds
 
 def main():
 
+    # first open google.com to reset the browser, then close it
+    webbrowser.open("https://www.google.com")
+    time.sleep(2)
+    with pyautogui.hold(cmd):
+        pyautogui.press("w")
+    time.sleep(2)
+
     # open the quarto to load the connection / login
     webbrowser.open(nettsider["quarto_infoskjerm"])
     time.sleep(30)
@@ -46,7 +53,7 @@ def main():
             for number in tab_numbers:
                 with pyautogui.hold(cmd):
                     pyautogui.press(number)  # switch tab
-                    if loop % 10 == 0:
+                    if loop % 100 == 0:
                         pyautogui.press("r")  # refresh
                 time.sleep(pause_tid)
             loop += 1
