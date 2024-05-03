@@ -12,3 +12,9 @@ og legg til følgende linje:
 ````
 @lxterminal -t lxterm -e /home/pi/Desktop/infoskjerm/refresher.sh
 ````
+
+Husk å gi filen executable rettigheter:
+
+````
+chmod +x refresher.sh
+````
