@@ -5,39 +5,42 @@ import time
 import pyautogui
 
 
-quarto_infoskjerm = "https://data.ansatt.nav.no/story/6c66a54b-3599-4090-80a1-1a4073900929/index.html#infoskjerm"
-grafana_spenn = "https://grafana.nav.cloud.nais.io/d/d1961678-a775-469a-8718-92082ee6f3ba/airflow-profilering?orgId=1&var-namespace=team-spenn-vans&from=now-2d&to=now"
+# quarto_infoskjerm = "https://data.ansatt.nav.no/story/6c66a54b-3599-4090-80a1-1a4073900929/index.html#infoskjerm"
 
-mac = True
+
+nettsider = {
+    "quarto_infoskjerm": "https://data.ansatt.nav.no/story/6c66a54b-3599-4090-80a1-1a4073900929/index.html#infoskjerm",
+    # 'grafana_spenn': "https://grafana.nav.cloud.nais.io/d/d1961678-a775-469a-8718-92082ee6f3ba/airflow-profilering?orgId=1&var-namespace=team-spenn-vans&from=now-2d&to=now",
+    "quarto_stonads": "https://data.ansatt.nav.no/story/6c66a54b-3599-4090-80a1-1a4073900929/index.html#stonadsmottakere",
+    "yr_oslo": "https://www.yr.no/nb/v%C3%A6rvarsel/timetabell/1-72837/Noreg/Oslo/Oslo/Oslo?i=0",
+}
+
+mac = False
 cmd = "command" if mac else "ctrl"
 
 
 def main():
+    # open all tabs
+    for tab in nettsider.values():
+        webbrowser.open(tab)
+        time.sleep(1)
 
-    # open a new tab with the infoskjerm
-    webbrowser.open(quarto_infoskjerm)
+    # on startup the default quarto page is opened, which we don't want
     # close the first tab, which is the default tab
-    time.sleep(2)
     with pyautogui.hold(cmd):
         pyautogui.press(["1", "w"])
 
-    # open the remaining tabs
-    webbrowser.open(grafana_spenn)
-
-    # looping over the tabs to keep them alive
-    tabs = ["1", "2"]
-    # tab 1 is infoskjerm
-    # tab 2 is grafana
-  
     loop = 0
+
+    tab_numbers = [str(i) for i in range(1, len(nettsider) + 1)]
 
     try:
         while True:
-            for tab in tabs:
+            for number in tab_numbers:
                 with pyautogui.hold(cmd):
-                    pyautogui.press(tab)
+                    pyautogui.press(number)  # switch tab
                     if loop % 10 == 0:
-                        pyautogui.press("r")
+                        pyautogui.press("r")  # refresh
                 time.sleep(10)
             loop += 1
     except KeyboardInterrupt:
@@ -47,7 +50,6 @@ def main():
         print("An error occurred:", e)
         pass
 
-    webbrowser.open(quarto_infoskjerm)
     print("finito")
 
 
