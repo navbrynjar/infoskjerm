@@ -14,12 +14,14 @@ nettsider = {
     "yr_oslo": "https://www.yr.no/nb/v%C3%A6rvarsel/timetabell/1-72837/Noreg/Oslo/Oslo/Oslo?i=0",
     "damene": "https://data.ansatt.nav.no/story/7ea943c9-ae07-4d75-9b65-d775c05230dc/make_dashboard.html#kvinneandel-i-tech",
     "indikator1": "https://data.ansatt.nav.no/story/90383a5a-8cc9-42e2-a916-ec7dc90b3247/pages/detaljert/nav_historikk.html",
+    "ateam_quarto": "https://data.ansatt.nav.no/story/b54e4a30-7fca-491a-ab04-ac93795c7b37/pages/ovr_kompetanse.html",
 }
 
 mac = False
 cmd = "command" if mac else "ctrl"
 
 pause_tid = 10  # seconds
+
 
 def main():
 
@@ -37,7 +39,7 @@ def main():
     # open all tabs
     for tab in nettsider.values():
         webbrowser.open(tab)
-        time.sleep(.5)
+        time.sleep(0.5)
 
     # on startup the default quarto page is opened, which we don't want
     with pyautogui.hold(cmd):
