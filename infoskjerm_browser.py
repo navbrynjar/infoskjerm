@@ -14,7 +14,7 @@ nettsider = {
     "quarto_nye_rader": "https://data.ansatt.nav.no/story/6c66a54b-3599-4090-80a1-1a4073900929/index.html#kpi-nye-rader",
     "yr_oslo": "https://www.yr.no/nb/v%C3%A6rvarsel/timetabell/1-72837/Noreg/Oslo/Oslo/Oslo?i=0",
     "damene": "https://data.ansatt.nav.no/story/7ea943c9-ae07-4d75-9b65-d775c05230dc/make_dashboard.html#kvinneandel-i-tech",
-    "indikator1": "https://data.ansatt.nav.no/story/90383a5a-8cc9-42e2-a916-ec7dc90b3247/pages/detaljert/nav_historikk.html",
+    # "indikator1": "https://data.ansatt.nav.no/story/90383a5a-8cc9-42e2-a916-ec7dc90b3247/pages/detaljert/nav_historikk.html",
     "ateam_quarto": "https://data.ansatt.nav.no/story/b54e4a30-7fca-491a-ab04-ac93795c7b37/pages/ovr_kompetanse.html",
     # "torden": "https://map.blitzortung.org/#7.01/59.024/11.082/0/1",
 }
