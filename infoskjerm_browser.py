@@ -4,7 +4,7 @@ import time
 import pyautogui
 
 nettsider = {
-    # "quarto_infoskjerm": "https://data.ansatt.nav.no/story/6c66a54b-3599-4090-80a1-1a4073900929/index.html#hjem",
+    "quarto_infoskjerm": "https://data.ansatt.nav.no/story/6c66a54b-3599-4090-80a1-1a4073900929/index.html#hjem",
     # "grafana_spenn": "https://grafana.nav.cloud.nais.io/d/d1961678-a775-469a-8718-92082ee6f3ba/airflow-profilering?orgId=1&var-namespace=team-spenn-vans&from=now-2d&to=now",
     # "quarto_stonads": "https://data.ansatt.nav.no/story/6c66a54b-3599-4090-80a1-1a4073900929/index.html#stønadsmottakere",
     # "quarto_nye_rader": "https://data.ansatt.nav.no/story/6c66a54b-3599-4090-80a1-1a4073900929/index.html#kpi-nye-rader",
