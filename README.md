@@ -1,3 +1,6 @@
+Se heller https://github.com/navikt/infoskjerm-karusell
+---
+
 Filer til infoskjermen på kontoret
 
 
